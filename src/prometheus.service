@@ -1,0 +1,22 @@
+[Unit]
+Description=Prometheus Server
+Documentation=https://prometheus.io/
+After=network.target
+ 
+[Service]
+Type=simple
+ 
+ExecStart=/usr/local/prometheus/prometheus \
+--web.listen-address=localhost:9090 \
+--storage.tsdb.path="/mnt/data/prometheus" \
+--storage.tsdb.retention.time=15d \
+--config.file=/usr/local/prometheus/prom.yml \
+--web.enable-lifecycle \
+--web.enable-admin-api
+ 
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s QUIT $MAINPID
+Restart=on-failure
+ 
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,11 @@
+[Unit]
+Description=Run promql Script Once After Boot
+After=network.target  
+
+[Service]
+ExecStart=/bin/bash -c 'sleep 30 && /home/user/Future/promql.sh'
+Type=Simple
+RemainAfterExit=true 
+
+[Install]
+WantedBy=multi-user.target
