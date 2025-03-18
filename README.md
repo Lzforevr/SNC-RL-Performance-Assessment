@@ -47,6 +47,13 @@ Futuremore, the tools we used for data collection are listed below:
 5. metrics-server v0.6.3: https://github.com/kubernetes-sigs/metrics-server
 6. cAdvisor: https://github.com/google/cadvisor
 
+For those large files (Prometheus path, kube-state-metrics, metrics-server compressed image), you can download them from the official website or use the following command to clone:
+```bash
+git lfs install
+git clone https://github.com/Lzforevr/SNC-RL-Performance-Assessment
+git lfs pull
+```
+
 #### 2.3 Model & Training Codes
 Upcoming...
 
